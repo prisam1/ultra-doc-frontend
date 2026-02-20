@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { docService } from '../services/api';
+import { useState } from "react";
+import { docService } from "../services/api";
 
 export const useUltraDoc = () => {
   const [file, setFile] = useState(null);
@@ -13,7 +13,9 @@ export const useUltraDoc = () => {
     setUploading(true);
     try {
       await docService.upload(file);
-      setChatHistory([{ q: "System", a: "Document indexed. Ready for questions.", conf: 1.0 }]);
+      setChatHistory([
+        { q: "System", a: "Document indexed. Ready for questions.", conf: 1.0 },
+      ]);
     } catch (err) {
       alert("Upload failed.");
     } finally {
@@ -22,15 +24,20 @@ export const useUltraDoc = () => {
   };
 
   const askQuestion = async (question) => {
+    const cleanQuestion = question.trim();  
+    if (!cleanQuestion) return false;
     setLoading(true);
     try {
       const res = await docService.ask(question);
-      setChatHistory(prev => [{
-        q: question,
-        a: res.data.answer,
-        conf: res.data.confidence,
-        source: res.data.source
-      }, ...prev]);
+      setChatHistory((prev) => [
+        {
+          q: question,
+          a: res.data.answer,
+          conf: res.data.confidence,
+          source: res.data.source,
+        },
+        ...prev,
+      ]);
       return true;
     } catch (err) {
       alert(`Error: ${err.response?.data?.detail || "Request failed"}`);
@@ -53,8 +60,14 @@ export const useUltraDoc = () => {
   };
 
   return {
-    file, setFile, uploading, loading, 
-    chatHistory, extraction, 
-    uploadFile, askQuestion, runExtraction
+    file,
+    setFile,
+    uploading,
+    loading,
+    chatHistory,
+    extraction,
+    uploadFile,
+    askQuestion,
+    runExtraction,
   };
 };
