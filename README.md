@@ -1,5 +1,12 @@
 # UltraDoc Frontend: TMS Audit Dashboard
 This is the React-based interface for the UltraDoc POC. It provides a high-fidelity dashboard for logistics professionals to interact with document data, view automated extractions, and verify AI-generated answers with source attribution.
+
+# Submission Links
+  # Hosted UI: https://ultra-doc-frontend.vercel.app/
+
+  # GitHub Repository:  https://github.com/prisam1/ultra-doc-backend.git 
+ 
+
  # Key Features
  Real-time Confidence Indicator: Visual feedback on AI certainty (Green for $>60\%$, Red for low confidence).
  Source Attribution: Displays the exact text snippet from the PDF used to generate the answer for instant auditing.Structured Data View: A dedicated sidebar that parses and displays JSON extractions (Shipment ID, Carrier, Rate, etc.).Responsive Chat Interface: A clean, professional workspace designed for high-volume document analysis.
