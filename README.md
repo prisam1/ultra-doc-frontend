@@ -3,7 +3,9 @@ This is the React-based interface for the UltraDoc POC. It provides a high-fidel
 
 # Submission Links
   # Hosted UI: https://ultra-doc-frontend.vercel.app/
-
+  # Frontend
+  # GitHub Repository:  https://github.com/prisam1/ultra-doc-frontend.git
+  # Backend
   # GitHub Repository:  https://github.com/prisam1/ultra-doc-backend.git 
  
 
