@@ -24,11 +24,9 @@ export const useUltraDoc = () => {
   };
 
   const askQuestion = async (question) => {
-    const cleanQuestion = question.trim();  
-    if (!cleanQuestion) return false;
     setLoading(true);
     try {
-      const res = await docService.ask(question);
+      const res = await docService.ask(question.trim());
       setChatHistory((prev) => [
         {
           q: question,
